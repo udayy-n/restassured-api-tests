@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="REST Assured API Test Automation Suite (30 Test Cases)" verbose="1">
+    <test name="Functional, Regression, Boundary, and Negative API Tests">
+        <classes>
+            <class name="com.uday.api.tests.ProductAndOrderCrudTests"/>
+            <class name="com.uday.api.tests.UserAndCustomerApiTests"/>
+            <class name="com.uday.api.tests.BoundaryAndNegativeApiTests"/>
+        </classes>
+    </test>
+</suite>

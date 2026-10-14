@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Customer Profile Schema",
+  "type": "object",
+  "required": ["id", "name", "username", "email", "address"],
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string", "minLength": 1 },
+    "username": { "type": "string", "minLength": 1 },
+    "email": { "type": "string", "pattern": "^.+@.+\\..+$" },
+    "address": {
+      "type": "object",
+      "required": ["street", "city", "zipcode"],
+      "properties": {
+        "street": { "type": "string" },
+        "city": { "type": "string" },
+        "zipcode": { "type": "string" }
+      }
+    }
+  }
+}

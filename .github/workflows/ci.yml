@@ -1,0 +1,32 @@
+name: REST Assured API Automation CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  run-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Run 30 Automated REST Assured Test Cases
+        run: mvn clean test
+
+      - name: Upload TestNG HTML Execution Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: testng-execution-reports
+          path: target/surefire-reports/
